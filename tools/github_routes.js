@@ -66,7 +66,7 @@ var MotingGitNet = (function (cfg) {
     if (url.indexOf(cfg.rawBase) === 0) return url;
     // Previously cached voice-group records may still contain the old host.
     var legacy = /^https?:\/\/(?:cnb\.cool|gitee\.com)\/applecabal\/(yinpin|viocefactory|jread-voice-assets)\/(?:-\/git\/raw\/|raw\/)[^/]+\/(.*)$/.exec(url);
-    if (legacy) return cfg.rawBase + 'origins/' + legacy[1] + '/' + legacy[2];
+    if (legacy) return cfg.rawBase + 'origins/' + legacy[1] + '/' + legacy[2]; var oldgh = /^https?:\/\/raw\.githubusercontent\.com\/jwoo1982217-eng\/moting-voice-materials-20261009\/main\/(.*)$/.exec(url); if (oldgh) return cfg.rawBase + oldgh[1];
     for (var id in cfg.routes) {
       var r = cfg.routes[id], prefix;
       if (r.type === 'proxy') prefix = r.base + cfg.rawBase;
